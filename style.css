@@ -59,6 +59,8 @@ body {
 
 #search::placeholder {
   color: #fff6e9; /* Change this to your desired color */
+  text-align: center;
+  overflow: hidden;
 }
 
 #search-button {
@@ -92,7 +94,7 @@ body {
     100px
   ); /* Added max font size to prevent temperature from growing too large */
   color: #fff6e9;
-  margin-left: 15px; /* Added margin because of degree sign */
+  margin-top: 10px;
 }
 
 #description {
@@ -101,7 +103,6 @@ body {
     5vw,
     30px
   ); /* Added max font size to prevent description from growing too large */
-  margin-left: 15px;
 }
 
 #days {
@@ -258,7 +259,7 @@ footer * {
   }
 
   #details {
-    padding-bottom: 200px;
+    padding-bottom: 100px;
   }
 
   footer {
