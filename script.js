@@ -112,7 +112,7 @@ document.querySelector("#search").addEventListener("keydown", async (event) => {
   }
 });
 
-ocument.querySelector("#search-button").addEventListener("click", async () => {
+document.querySelector("#search-button").addEventListener("click", async () => {
   const location = document.querySelector("#search").value;
   try {
     const weatherData = await getWeatherData(location);
