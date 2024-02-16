@@ -75,7 +75,8 @@ function updateDOM(weatherData) {
   document.querySelector("#search").setAttribute("placeholder", location);
   document.querySelector("#temperature").textContent =
     Math.round(temperature) + "°C";
-  document.querySelector("#feels-like-value").textContent = feelsLike;
+  document.querySelector("#feels-like-value").textContent =
+    Math.round(feelsLike) + "°C";
   document.querySelector("#humidity-value").textContent = humidity + "%";
   document.querySelector("#wind-value").textContent = windSpeed + " m/s";
   document.querySelector("#air-quality-value").textContent =
