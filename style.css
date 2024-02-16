@@ -8,9 +8,9 @@
 
 /* CSS Reset */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -151,7 +151,7 @@ body {
   ); /* use auto-fill and minmax for responsive columns */
   gap: 20px;
   margin-top: 20px;
-  padding-bottom: 100px; /* added padding to prevent footer from overlapping */
+  padding-bottom: 50px; /* added padding to prevent footer from overlapping */
 }
 
 .detail {
@@ -177,7 +177,7 @@ body {
   text-align: right;
 }
 
-#detail-text-container p {
+#detail-text-container > p {
   color: #fff6e9;
   font-size: 1rem;
   text-align: right;
@@ -255,6 +255,10 @@ footer * {
 
   .detail-value {
     font-size: 1rem;
+  }
+
+  #details {
+    padding-bottom: 200px;
   }
 
   footer {
