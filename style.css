@@ -163,12 +163,13 @@ body {
 }
 
 .detail-icon svg {
-  width: 100%; /* use 100% of the parent's width */
-  min-height: 50px; /* set a minimum height */
-  max-height: 100px; /* set a maximum height */
-  height: auto; /* maintain aspect ratio */
+  width: 5vw;
+  height: 5vw;
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 80px;
+  max-height: 100px;
 }
-
 .detail-value {
   color: #fff6e9;
   font-size: 1.2rem;
@@ -200,4 +201,52 @@ footer {
 footer * {
   color: #fff6e9;
   text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 2%;
+  }
+
+  #gps-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  #weather-icon {
+    width: min(25vw, 250px);
+  }
+
+  #temperature {
+    font-size: min(8vw, 80px);
+  }
+
+  #description {
+    font-size: min(4vw, 25px);
+  }
+
+  #day-date {
+    font-size: min(3.5vw, 25px);
+  }
+
+  #day-name {
+    font-size: min(0.8rem, 25px);
+  }
+
+  .detail-icon svg {
+    width: 4vw;
+    height: 4vw;
+    min-width: 25px;
+    min-height: 25px;
+    max-width: 70px;
+    max-height: 90px;
+  }
+
+  .detail-value {
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.7rem;
+  }
 }
