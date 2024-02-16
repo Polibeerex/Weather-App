@@ -6,7 +6,7 @@ async function getWeatherData(location) {
   try {
     const apiKey = "3f2d3cd3a5900736eb3cd458b875135f";
     const encodedLocation = encodeURIComponent(location);
-    const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${encodedLocation}&appid=${apiKey}&units=metric`;
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodedLocation}&appid=${apiKey}&units=metric`;
     const weatherResponse = await fetch(weatherUrl);
 
     if (!weatherResponse.ok) {
@@ -14,7 +14,7 @@ async function getWeatherData(location) {
     }
 
     const weatherData = await weatherResponse.json();
-    const pollutionUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&appid=${apiKey}`;
+    const pollutionUrl = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&appid=${apiKey}`;
     const pollutionResponse = await fetch(pollutionUrl);
     const pollutionData = await pollutionResponse.json();
 
