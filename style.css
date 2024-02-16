@@ -151,6 +151,7 @@ body {
   ); /* use auto-fill and minmax for responsive columns */
   gap: 20px;
   margin-top: 20px;
+  padding-bottom: 50px; /* added padding to prevent footer from overlapping */
 }
 
 .detail {
