@@ -29,7 +29,7 @@ async function getWeatherData(location) {
     };
   } catch (error) {
     console.error("Error fetching weather data:", error);
-    return null;
+    throw error; // Throw the error so it can be caught later
   }
 }
 
@@ -101,15 +101,27 @@ getUserLocation().then(async (city) => {
 document.querySelector("#search").addEventListener("keydown", async (event) => {
   if (event.key === "Enter") {
     const location = event.target.value;
-    const weatherData = await getWeatherData(location);
-    updateDOM(weatherData);
+    try {
+      const weatherData = await getWeatherData(location);
+      updateDOM(weatherData);
+    } catch (error) {
+      alert(
+        "Error fetching weather data. Please check the city name and try again."
+      );
+    }
   }
 });
 
-document.querySelector("#search-button").addEventListener("click", async () => {
+ocument.querySelector("#search-button").addEventListener("click", async () => {
   const location = document.querySelector("#search").value;
-  const weatherData = await getWeatherData(location);
-  updateDOM(weatherData);
+  try {
+    const weatherData = await getWeatherData(location);
+    updateDOM(weatherData);
+  } catch (error) {
+    alert(
+      "Error fetching weather data. Please check the city name and try again."
+    );
+  }
 });
 
 // Get the weather icon based on the weather description
