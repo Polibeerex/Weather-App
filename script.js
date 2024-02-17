@@ -204,6 +204,34 @@ document.querySelector("#search-button").addEventListener("click", async () => {
     const weatherData = await getWeatherData(location);
     console.log("Weather data:", weatherData); // Log the weather data
     updateDOM(weatherData);
+
+    const forecastData = await getForecastData(location);
+    console.log("Forecast data:", forecastData); // Log the forecast data
+
+    // Get the forecast data for the next 5 days
+    let forecastList = forecastData.list;
+    let forecast = [];
+
+    for (let i = 0; i < forecastList.length; i++) {
+      let forecastItem = forecastList[i];
+      let date = new Date(forecastItem.dt_txt);
+      let day = getOrdinalSuffix(date.getDate());
+      let time = date.getHours() + ":" + ("0" + date.getMinutes()).slice(-2);
+      let temperature = forecastItem.main.temp;
+      let humidity = forecastItem.main.humidity;
+      let windSpeed = forecastItem.wind.speed;
+
+      forecast.push({
+        date: day,
+        time: time,
+        temperature: temperature,
+        humidity: humidity,
+        windSpeed: windSpeed,
+      });
+    }
+    // Now forecast contains the forecast data for the next 5 days
+    console.log(forecast); // Log the forecast data
+    updateForecastDOM(forecast);
   } catch (error) {
     console.error("Error fetching weather data:", error);
     alert(
