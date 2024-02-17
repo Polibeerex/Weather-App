@@ -1,4 +1,3 @@
-// api/weather.js
 export default async (req, res) => {
   try {
     const location = req.query.location;
@@ -8,6 +7,10 @@ export default async (req, res) => {
 
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodedLocation}&appid=${apiOpenWeather}&units=metric`;
     const weatherResponse = await fetch(weatherUrl);
+    if (!weatherResponse.ok) {
+      console.error("Error fetching weather data:", weatherResponse.statusText);
+      throw new Error("Error fetching weather data");
+    }
     const weatherData = await weatherResponse.json();
 
     res.json(weatherData);
