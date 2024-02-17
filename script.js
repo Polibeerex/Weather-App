@@ -5,7 +5,7 @@ async function getWeatherData(location) {
   try {
     const encodedLocation = encodeURIComponent(location);
     const weatherResponse = await fetch(
-      `https://poliweather.vercel.app/weather?location=${encodedLocation}`
+      `https://poliweather.vercel.app/api/weather?location=${encodedLocation}`
     );
 
     if (!weatherResponse.ok) {
@@ -30,7 +30,7 @@ async function getWeatherData(location) {
 async function getForecastData(city) {
   try {
     const forecastResponse = await fetch(
-      `https://poliweather.vercel.app/forecast?city=${city}`
+      `https://poliweather.vercel.app/api/forecast?city=${city}`
     );
 
     if (!forecastResponse.ok) {
@@ -55,7 +55,7 @@ async function getUserLocation() {
       console.log(`Latitude: ${lat}, Longitude: ${lon}`); // Log the latitude and longitude
 
       const response = await fetch(
-        `https://poliweather.vercel.app/location?lat=${lat}&lon=${lon}`
+        `https://poliweather.vercel.app/api/location?lat=${lat}&lon=${lon}`
       );
       const data = await response.json();
 
