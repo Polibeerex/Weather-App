@@ -4,7 +4,7 @@
 // Get weather data
 async function getWeatherData(location) {
   try {
-    const apiKey = "3f2d3cd3a5900736eb3cd458b875135f";
+    const apiKey = OPENWEATHERMAP_API_KEY;
     const encodedLocation = encodeURIComponent(location);
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodedLocation}&appid=${apiKey}&units=metric`;
     const weatherResponse = await fetch(weatherUrl);
@@ -42,8 +42,9 @@ async function getUserLocation() {
 
       console.log(`Latitude: ${lat}, Longitude: ${lon}`); // Log the latitude and longitude
 
+      const apiKey = OPENCAGE_API_KEY;
       const response = await fetch(
-        `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=8267cbaa8e8f4be89279e0dc1476f54b&language=en`
+        `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=${apiKey}&language=en`
       );
       const data = await response.json();
 
