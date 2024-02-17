@@ -248,11 +248,12 @@ document.querySelector("#search-button").addEventListener("click", () => {
 });
 
 //
-document.querySelector("#search-button").addEventListener("submit", (event) => {
-  event.preventDefault(); // Prevent the form from being submitted normally
-  const location = document.querySelector("#search").value;
-  fetchAndUpdateWeather(location);
-  document.querySelector("#search").value = ""; // Clear the search bar
+document.querySelector("#search").addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    const location = document.querySelector("#search").value;
+    fetchAndUpdateWeather(location);
+    document.querySelector("#search").value = ""; // Clear the search bar
+  }
 });
 
 // Get the weather icon based on the weather description
