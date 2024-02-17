@@ -55,7 +55,7 @@ async function getUserLocation() {
       console.log(`Latitude: ${lat}, Longitude: ${lon}`); // Log the latitude and longitude
 
       const response = await fetch(
-        `httpss://poliweather.vercel.app/location?lat=${lat}&lon=${lon}`
+        `https://poliweather.vercel.app/location?lat=${lat}&lon=${lon}`
       );
       const data = await response.json();
 
