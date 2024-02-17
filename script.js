@@ -30,7 +30,7 @@ async function getWeatherData(location) {
 async function getForecastData(city) {
   try {
     const forecastResponse = await fetch(
-      `https://localhost:3000/forecast?city=${city}`
+      `https://poliweather.vercel.app/forecast?city=${city}`
     );
 
     if (!forecastResponse.ok) {
