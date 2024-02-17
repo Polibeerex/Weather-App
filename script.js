@@ -248,7 +248,7 @@ document.querySelector("#search-button").addEventListener("click", () => {
 });
 
 //
-document.querySelector("#search-form").addEventListener("submit", (event) => {
+document.querySelector("#search-button").addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent the form from being submitted normally
   const location = document.querySelector("#search").value;
   fetchAndUpdateWeather(location);
