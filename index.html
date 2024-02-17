@@ -11,124 +11,136 @@
         rel="stylesheet">
     <link rel="icon" href="image/favicon.svg" type="image/svg">
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
+    <div class="container">
+        <div class="sky">
+            <div class="stars"></div>
+            <div class="stars1"></div>
+            <div class="stars2"></div>
+            <div class="shooting-stars"></div>
+        </div>
+        <main>
+            <!-- Weather information goes here -->
+            <section id="weather-container">
 
-    <main>
-        <!-- Weather information goes here -->
-        <section id="weather-container">
-
-            <!-- Search bar -->
-            <div id="location">
-                <div id="gps-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                        <path fill="white" d="M20 12a8 8 0 1 1-16 0a8 8 0 0 1 16 0" opacity="0.5" />
-                        <path fill="white"
-                            d="M12 8.512a3.488 3.488 0 1 0 0 6.976a3.488 3.488 0 0 0 0-6.976M12.75 2a.75.75 0 0 0-1.5 0v2.035a8.102 8.102 0 0 1 1.5 0zm7.215 10.75a8.085 8.085 0 0 0 0-1.5H22a.75.75 0 0 1 0 1.5zm-8.715 7.215a8.085 8.085 0 0 0 1.5 0V22a.75.75 0 0 1-1.5 0zM4.035 11.25a8.102 8.102 0 0 0 0 1.5H2a.75.75 0 0 1 0-1.5z" />
-                    </svg>
-                </div>
-                <div id="city-name">
-                    <input type="text" id="search" placeholder="Search for a city">
-                </div>
-                <button id="search-button">Search</button>
-            </div>
-
-            <!-- Weather icon, temperature, weather description -->
-            <div id="weather">
-                <img src="image/meteor.svg" alt="Weather icon" id="weather-icon" />
-                <div id="temperature">Pending...</div>
-                <div id="description">Pending...</div>
-            </div>
-
-            <!-- Days of the week -->
-            <div id="days">
-                <div class="day">
-                    <h3 id="day-date">N/A</h3>
-                    <p id="day-name">N/A</p>
-                </div>
-                <div class="day">
-                    <h3 id="day-date">N/A</h3>
-                    <p id="day-name">N/A</p>
-                </div>
-                <div class="day">
-                    <h3 id="day-date">N/A</h3>
-                    <p id="day-name">N/A</p>
-                </div>
-                <div class="day">
-                    <h3 id="day-date">N/A</h3>
-                    <p id="day-name">N/A</p>
-                </div>
-                <div class="day">
-                    <h3 id="day-date">N/A</h3>
-                    <p id="day-name">N/A</p>
-                </div>
-            </div>
-
-            <!-- Feels like, humidity, wind, air quality -->
-            <div id="details">
-                <div class="detail" id="feels-like">
-                    <div class="detail-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
-                            <path fill="#BBE2EC"
-                                d="M13 17.26V6a4 4 0 0 0-8 0v11.26a7 7 0 1 0 8 0M9 4a2 2 0 0 1 2 2v7H7V6a2 2 0 0 1 2-2m0 24a5 5 0 0 1-2.5-9.33l.5-.28V15h4v3.39l.5.28A5 5 0 0 1 9 28M20 4h10v2H20zm0 6h7v2h-7zm0 6h10v2H20zm0 6h7v2h-7z" />
-                        </svg>
-                    </div>
-                    <div id="detail-text-container">
-                        <p>Feels like</p>
-                        <div class="detail-value" id="feels-like-value">Pending...</div>
-                    </div>
-                </div>
-                <div class="detail" id="humidity">
-                    <div class="detail-icon">
+                <!-- Search bar -->
+                <div id="location">
+                    <div id="gps-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                            <g fill="none" stroke="#BBE2EC" stroke-width="2">
-                                <path
-                                    d="M20 14.571C20 18.753 16.336 22 12 22s-8-3.247-8-7.429C4 12 5.305 9.452 6.716 7.423c1.43-2.055 3.076-3.726 3.962-4.568M20 14.571L10.678 2.855M20 14.571c0-2.571-1.305-5.119-2.716-7.148c-1.43-2.055-3.076-3.726-3.962-4.568a1.913 1.913 0 0 0-2.644 0M20 14.571L10.678 2.855" />
-                                <path stroke-linecap="round" d="M12 18a4 4 0 0 1-4-4" />
-                            </g>
+                            <path fill="white" d="M20 12a8 8 0 1 1-16 0a8 8 0 0 1 16 0" opacity="0.5" />
+                            <path fill="white"
+                                d="M12 8.512a3.488 3.488 0 1 0 0 6.976a3.488 3.488 0 0 0 0-6.976M12.75 2a.75.75 0 0 0-1.5 0v2.035a8.102 8.102 0 0 1 1.5 0zm7.215 10.75a8.085 8.085 0 0 0 0-1.5H22a.75.75 0 0 1 0 1.5zm-8.715 7.215a8.085 8.085 0 0 0 1.5 0V22a.75.75 0 0 1-1.5 0zM4.035 11.25a8.102 8.102 0 0 0 0 1.5H2a.75.75 0 0 1 0-1.5z" />
                         </svg>
                     </div>
-                    <div id="detail-text-container">
-                        <p>Humidity</p>
-                        <div class="detail-value" id="humidity-value">Pending...</div>
+                    <div id="city-name">
+                        <input type="text" id="search" placeholder="Search for a city">
                     </div>
+                    <button id="search-button">Search</button>
                 </div>
-                <div class="detail" id="wind">
-                    <div class="detail-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                            <g fill="none" stroke="#BBE2EC" stroke-linecap="round" stroke-width="1.5">
-                                <path d="M3 8h6.5A2.5 2.5 0 1 0 7 5.5v.357M4 14h14.5a3.5 3.5 0 1 1-3.5 3.5V17" />
-                                <path d="M2 11h16.5A3.5 3.5 0 1 0 15 7.5V8" opacity="0.5" />
-                            </g>
-                        </svg>
-                    </div>
-                    <div id="detail-text-container">
-                        <p>Wind</p>
-                        <div class="detail-value" id="wind-value">Pending...</div>
-                    </div>
-                </div>
-                <div class="detail" id="air-quality">
-                    <div class="detail-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                            <path fill="#BBE2EC"
-                                d="M14.421 7.624a3.7 3.7 0 0 0-2.907.5a.258.258 0 0 0-.045.392a.345.345 0 0 0 .441.062a3.038 3.038 0 0 1 2.39-.411a2.741 2.741 0 0 1 2.241 3.139l-.027.119a2.623 2.623 0 0 1-.132.414a.339.339 0 0 0 .169.421a.284.284 0 0 0 .4-.126a3.12 3.12 0 0 0 .194-.646l.009-.039a3.339 3.339 0 0 0-2.733-3.825m3 13.09H16.5l1.063-1.159a.838.838 0 0 0 .009-1.035a1.267 1.267 0 0 0-1.024-.476a1.184 1.184 0 0 0-1.291 1.03a.429.429 0 0 0 .837 0a.418.418 0 0 1 .461-.362a.357.357 0 0 1 .294.144a.291.291 0 0 1 .019.326l-1.531 1.669a.278.278 0 0 0-.035.348a.439.439 0 0 0 .373.182h1.745a.342.342 0 1 0 0-.667zM8.864 19a2.056 2.056 0 0 1-.757.14a1.571 1.571 0 0 1-1.713-1.365a1.571 1.571 0 0 1 1.713-1.365a2.057 2.057 0 0 1 .749.137a.47.47 0 0 0 .559-.154a.307.307 0 0 0-.193-.446a3.056 3.056 0 0 0-1.115-.2a2.338 2.338 0 0 0-2.55 2.032a2.339 2.339 0 0 0 2.55 2.033a3.063 3.063 0 0 0 1.128-.21a.306.306 0 0 0 .19-.447a.472.472 0 0 0-.561-.155m3.351-3.26a2.337 2.337 0 0 0-2.549 2.032a2.338 2.338 0 0 0 2.549 2.033a2.339 2.339 0 0 0 2.55-2.033a2.338 2.338 0 0 0-2.55-2.032m0 3.4a1.57 1.57 0 0 1-1.715-1.368a1.57 1.57 0 0 1 1.712-1.365a1.57 1.57 0 0 1 1.713 1.365a1.57 1.57 0 0 1-1.71 1.365zm-4.027-4.312a.334.334 0 0 0 0-.667H5.726a3.057 3.057 0 0 1-1.048-5.93a.333.333 0 0 0 .2-.412a3.978 3.978 0 1 1 7.6-2.347a.335.335 0 0 0 .266.231a.33.33 0 0 0 .324-.135a3.349 3.349 0 0 1 2.711-1.393h.022A3.27 3.27 0 0 1 18.186 5.2a3.331 3.331 0 0 1 .931 2.451a.334.334 0 0 0 .667.032a4 4 0 0 0-1.116-2.945a3.935 3.935 0 0 0-2.859-1.232a4.032 4.032 0 0 0-2.895 1.217a4.646 4.646 0 0 0-8.876 1.922a4.691 4.691 0 0 0 .126 1.077a3.724 3.724 0 0 0 1.562 7.106Zm12.449-6.606a.334.334 0 0 0-.422.517a3.058 3.058 0 0 1-1.936 5.422H9.555a.334.334 0 0 0 0 .667h8.724a3.725 3.725 0 0 0 2.358-6.606" />
-                        </svg>
-                    </div>
-                    <div id="detail-text-container">
-                        <p>Air quality</p>
-                        <div class="detail-value" id="air-quality-value">Pending...</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <footer>
-        <a href="https://polibeerex.github.io/Personal-Website/">Created with ❤️ by Andrii Ovchynnikov</a>
-    </footer>
+                <!-- Weather icon, temperature, weather description -->
+                <div id="weather">
+                    <img src="image/meteor.svg" alt="Weather icon" id="weather-icon" />
+                    <div id="temperature">Pending...</div>
+                    <div id="description">Pending...</div>
+                </div>
 
+                <!-- Days of the week -->
+                <div id="forecast">
+                    <div class="forecast-piece">
+                        <p class="day-date">N/A</p>
+                        <p class="day-time">N/A</p>
+                    </div>
+                    <div class="forecast-piece">
+                        <p class="day-date">N/A</p>
+                        <p class="day-time">N/A</p>
+                    </div>
+                    <div class="forecast-piece">
+                        <p class="day-date">N/A</p>
+                        <p class="day-time">N/A</p>
+                    </div>
+                    <div class="forecast-piece">
+                        <p class="day-date">N/A</p>
+                        <p class="day-time">N/A</p>
+                    </div>
+                    <div class="forecast-piece">
+                        <p class="day-date">N/A</p>
+                        <p class="day-time">N/A</p>
+                    </div>
+                </div>
+
+                <!-- Feels like, humidity, wind, air quality -->
+                <div id="details">
+                    <div class="detail" id="feels-like">
+                        <div class="detail-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
+                                <path fill="#FFE5E5"
+                                    d="M13 17.26V6a4 4 0 0 0-8 0v11.26a7 7 0 1 0 8 0M9 4a2 2 0 0 1 2 2v7H7V6a2 2 0 0 1 2-2m0 24a5 5 0 0 1-2.5-9.33l.5-.28V15h4v3.39l.5.28A5 5 0 0 1 9 28M20 4h10v2H20zm0 6h7v2h-7zm0 6h10v2H20zm0 6h7v2h-7z" />
+                            </svg>
+                        </div>
+                        <div id="detail-text-container">
+                            <p>Feels like</p>
+                            <div class="detail-value" id="feels-like-value">Pending...</div>
+                        </div>
+                    </div>
+                    <div class="detail" id="humidity">
+                        <div class="detail-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                <g fill="none" stroke="#FFE5E5" stroke-width="2">
+                                    <path
+                                        d="M20 14.571C20 18.753 16.336 22 12 22s-8-3.247-8-7.429C4 12 5.305 9.452 6.716 7.423c1.43-2.055 3.076-3.726 3.962-4.568M20 14.571L10.678 2.855M20 14.571c0-2.571-1.305-5.119-2.716-7.148c-1.43-2.055-3.076-3.726-3.962-4.568a1.913 1.913 0 0 0-2.644 0M20 14.571L10.678 2.855" />
+                                    <path stroke-linecap="round" d="M12 18a4 4 0 0 1-4-4" />
+                                </g>
+                            </svg>
+                        </div>
+                        <div id="detail-text-container">
+                            <p>Humidity</p>
+                            <div class="detail-value" id="humidity-value">Pending...</div>
+                        </div>
+                    </div>
+                    <div class="detail" id="wind">
+                        <div class="detail-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                <g fill="none" stroke="#FFE5E5" stroke-linecap="round" stroke-width="1.5">
+                                    <path d="M3 8h6.5A2.5 2.5 0 1 0 7 5.5v.357M4 14h14.5a3.5 3.5 0 1 1-3.5 3.5V17" />
+                                    <path d="M2 11h16.5A3.5 3.5 0 1 0 15 7.5V8" opacity="0.5" />
+                                </g>
+                            </svg>
+                        </div>
+                        <div id="detail-text-container">
+                            <p>Wind</p>
+                            <div class="detail-value" id="wind-value">Pending...</div>
+                        </div>
+                    </div>
+                    <div class="detail" id="air-quality">
+                        <div class="detail-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                <path fill="#FFE5E5"
+                                    d="M14.421 7.624a3.7 3.7 0 0 0-2.907.5a.258.258 0 0 0-.045.392a.345.345 0 0 0 .441.062a3.038 3.038 0 0 1 2.39-.411a2.741 2.741 0 0 1 2.241 3.139l-.027.119a2.623 2.623 0 0 1-.132.414a.339.339 0 0 0 .169.421a.284.284 0 0 0 .4-.126a3.12 3.12 0 0 0 .194-.646l.009-.039a3.339 3.339 0 0 0-2.733-3.825m3 13.09H16.5l1.063-1.159a.838.838 0 0 0 .009-1.035a1.267 1.267 0 0 0-1.024-.476a1.184 1.184 0 0 0-1.291 1.03a.429.429 0 0 0 .837 0a.418.418 0 0 1 .461-.362a.357.357 0 0 1 .294.144a.291.291 0 0 1 .019.326l-1.531 1.669a.278.278 0 0 0-.035.348a.439.439 0 0 0 .373.182h1.745a.342.342 0 1 0 0-.667zM8.864 19a2.056 2.056 0 0 1-.757.14a1.571 1.571 0 0 1-1.713-1.365a1.571 1.571 0 0 1 1.713-1.365a2.057 2.057 0 0 1 .749.137a.47.47 0 0 0 .559-.154a.307.307 0 0 0-.193-.446a3.056 3.056 0 0 0-1.115-.2a2.338 2.338 0 0 0-2.55 2.032a2.339 2.339 0 0 0 2.55 2.033a3.063 3.063 0 0 0 1.128-.21a.306.306 0 0 0 .19-.447a.472.472 0 0 0-.561-.155m3.351-3.26a2.337 2.337 0 0 0-2.549 2.032a2.338 2.338 0 0 0 2.549 2.033a2.339 2.339 0 0 0 2.55-2.033a2.338 2.338 0 0 0-2.55-2.032m0 3.4a1.57 1.57 0 0 1-1.715-1.368a1.57 1.57 0 0 1 1.712-1.365a1.57 1.57 0 0 1 1.713 1.365a1.57 1.57 0 0 1-1.71 1.365zm-4.027-4.312a.334.334 0 0 0 0-.667H5.726a3.057 3.057 0 0 1-1.048-5.93a.333.333 0 0 0 .2-.412a3.978 3.978 0 1 1 7.6-2.347a.335.335 0 0 0 .266.231a.33.33 0 0 0 .324-.135a3.349 3.349 0 0 1 2.711-1.393h.022A3.27 3.27 0 0 1 18.186 5.2a3.331 3.331 0 0 1 .931 2.451a.334.334 0 0 0 .667.032a4 4 0 0 0-1.116-2.945a3.935 3.935 0 0 0-2.859-1.232a4.032 4.032 0 0 0-2.895 1.217a4.646 4.646 0 0 0-8.876 1.922a4.691 4.691 0 0 0 .126 1.077a3.724 3.724 0 0 0 1.562 7.106Zm12.449-6.606a.334.334 0 0 0-.422.517a3.058 3.058 0 0 1-1.936 5.422H9.555a.334.334 0 0 0 0 .667h8.724a3.725 3.725 0 0 0 2.358-6.606" />
+                            </svg>
+                        </div>
+                        <div id="detail-text-container">
+                            <p>Air quality</p>
+                            <div class="detail-value" id="air-quality-value">Pending...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <a href="https://polibeerex.github.io/Personal-Website/">Created with ❤️ by Andrii Ovchynnikov</a>
+            <p>Weather data provided by
+                <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">OpenWeatherMap</a>
+            </p>
+        </footer>
+
+
+
+
+    </div>
     <script src="script.js"></script>
 </body>
 
