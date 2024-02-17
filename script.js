@@ -198,8 +198,8 @@ getUserLocation().then(async (city) => {
   }
 });
 
-document.querySelector("#search-button").addEventListener("click", async () => {
-  const location = document.querySelector("#search").value;
+// Fetch and update the weather data when the user searches for a location
+async function fetchAndUpdateWeather(location) {
   try {
     const weatherData = await getWeatherData(location);
     console.log("Weather data:", weatherData); // Log the weather data
@@ -238,6 +238,21 @@ document.querySelector("#search-button").addEventListener("click", async () => {
       "Error fetching weather data. Please check the city name and try again."
     );
   }
+}
+
+// Event listeners
+document.querySelector("#search-button").addEventListener("click", () => {
+  const location = document.querySelector("#search").value;
+  fetchAndUpdateWeather(location);
+  document.querySelector("#search").value = ""; // Clear the search bar
+});
+
+//
+document.querySelector("#search-form").addEventListener("submit", (event) => {
+  event.preventDefault(); // Prevent the form from being submitted normally
+  const location = document.querySelector("#search").value;
+  fetchAndUpdateWeather(location);
+  document.querySelector("#search").value = ""; // Clear the search bar
 });
 
 // Get the weather icon based on the weather description
