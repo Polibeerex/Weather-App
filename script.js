@@ -2,11 +2,9 @@
 // API KEY: 3f2d3cd3a5900736eb3cd458b875135f
 
 // Get weather data
-async function getWeatherData(location) {
+async function getWeatherData(lat, lon) {
   try {
-    const apiKey = OPENWEATHERMAP_API_KEY;
-    const encodedLocation = encodeURIComponent(location);
-    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodedLocation}&appid=${apiKey}&units=metric`;
+    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m`;
     const weatherResponse = await fetch(weatherUrl);
 
     if (!weatherResponse.ok) {
@@ -14,18 +12,11 @@ async function getWeatherData(location) {
     }
 
     const weatherData = await weatherResponse.json();
-    const pollutionUrl = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&appid=${apiKey}`;
-    const pollutionResponse = await fetch(pollutionUrl);
-    const pollutionData = await pollutionResponse.json();
 
     return {
-      location: weatherData.name,
-      temperature: weatherData.main.temp,
-      feelsLike: weatherData.main.feels_like,
-      humidity: weatherData.main.humidity,
-      windSpeed: weatherData.wind.speed,
-      airQuality: pollutionData.list[0].main.aqi,
-      weatherDescription: weatherData.weather[0].description,
+      location: `${lat}, ${lon}`,
+      temperature: weatherData.hourly.temperature_2m[0].value,
+      // Add other weather data as needed
     };
   } catch (error) {
     console.error("Error fetching weather data:", error);
@@ -36,31 +27,17 @@ async function getWeatherData(location) {
 // Get user location
 async function getUserLocation() {
   return new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-
-      console.log(`Latitude: ${lat}, Longitude: ${lon}`); // Log the latitude and longitude
-
-      const apiKey = OPENCAGE_API_KEY;
-      const response = await fetch(
-        `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=${apiKey}&language=en`
-      );
-      const data = await response.json();
-
-      console.log(data); // Log the data returned from the OpenCage Geocoder API
-
-      const components = data.results[0].components;
-      const city =
-        components.city ||
-        components.town ||
-        components.village ||
-        components.hamlet;
-
-      resolve(city);
-    }, reject);
+    navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 }
+
+// Usage
+getUserLocation().then(async (position) => {
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  const weatherData = await getWeatherData(lat, lon);
+  updateDOM(weatherData);
+});
 
 function updateDOM(weatherData) {
   // Create variables for each piece of weather data
@@ -92,13 +69,6 @@ function updateDOM(weatherData) {
     .setAttribute("src", getWeatherIcon(weatherDescription));
 }
 
-// Get the user's location and weather data, then update the DOM
-
-getUserLocation().then(async (city) => {
-  const weatherData = await getWeatherData(city);
-  updateDOM(weatherData);
-});
-
 document.querySelector("#search").addEventListener("keydown", async (event) => {
   if (event.key === "Enter") {
     const location = event.target.value;
@@ -126,7 +96,6 @@ document.querySelector("#search-button").addEventListener("click", async () => {
 });
 
 // Get the weather icon based on the weather description
-
 function getWeatherIcon(description) {
   let icon;
 
