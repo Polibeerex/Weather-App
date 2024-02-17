@@ -1,8 +1,8 @@
 // api/forecast.js
 
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const city = req.query.city;
   const apiOpenWeather = process.env.OPENWEATHERMAP_API_KEY;
   const geocodingUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiOpenWeather}`;

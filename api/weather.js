@@ -1,8 +1,8 @@
 // api/weather.js
 
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const location = req.query.location;
   const encodedLocation = encodeURIComponent(location);
   const apiOpenWeather = process.env.OPENWEATHERMAP_API_KEY;

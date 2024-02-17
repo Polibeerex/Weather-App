@@ -1,8 +1,8 @@
 // api/location.js
 
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const lat = req.query.lat;
   const lon = req.query.lon;
   const apiOpenCage = process.env.OPENCAGE_API_KEY;
@@ -10,5 +10,16 @@ module.exports = async (req, res) => {
     `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=${apiOpenCage}&language=en`
   );
   const data = await response.json();
+
+  // Set CORS headers
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  // and the headers you need for your own requests
+  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
+  );
+
   res.json(data);
 };
