@@ -19,6 +19,7 @@ async function getWeatherData(location) {
       feelsLike: weatherData.main.feels_like,
       humidity: weatherData.main.humidity,
       windSpeed: weatherData.wind.speed,
+      airQuality: weatherData.main.aqi,
       weatherDescription: weatherData.weather[0].description,
     };
   } catch (error) {
