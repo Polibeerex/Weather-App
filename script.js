@@ -19,7 +19,7 @@ async function getWeatherData(location) {
       feelsLike: weatherData.main.feels_like,
       humidity: weatherData.main.humidity,
       windSpeed: weatherData.wind.speed,
-      airQuality: weatherData.main.aqi,
+      pressure: weatherData.main.pressure, // Changed from airQuality to pressure
       weatherDescription: weatherData.weather[0].description,
     };
   } catch (error) {
@@ -81,7 +81,7 @@ function updateDOM(weatherData) {
   const feelsLike = weatherData.feelsLike;
   const humidity = weatherData.humidity;
   const windSpeed = weatherData.windSpeed;
-  const airQuality = weatherData.airQuality;
+  const pressure = weatherData.pressure; // Changed from airQuality to pressure
   const weatherDescription = weatherData.weatherDescription;
 
   // Update the DOM with the weather data
@@ -92,8 +92,7 @@ function updateDOM(weatherData) {
     Math.round(feelsLike) + "°C";
   document.querySelector("#humidity-value").textContent = humidity + "%";
   document.querySelector("#wind-value").textContent = windSpeed + " m/s";
-  document.querySelector("#air-quality-value").textContent =
-    airQuality + " AQI";
+  document.querySelector("#pressure-value").textContent = pressure + " hPa"; // Changed from air-quality-value to pressure-value
   const capitalizedDescription =
     weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
   document.querySelector("#description").textContent = capitalizedDescription;
