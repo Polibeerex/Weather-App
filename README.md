@@ -1,34 +1,39 @@
-# Weather App
+# PoliWeather - Weather App
 
-This project is a simple weather application built with JavaScript. It uses the OpenWeatherMap API and the OpenCage Geocoder API to fetch and display weather data for the user's current location or a location entered by the user.
+## About
+
+PoliWeather is a sleek and user-friendly weather application designed to showcase my web development skills and demonstrate my ability to integrate multiple APIs to create a functional web application.
+
+## Purpose
+
+The primary goal of PoliWeather is to provide users with up-to-date weather information for any location worldwide. By combining the OpenWeatherMap and OpenCage APIs, I demonstrate proficiency in API integration, data retrieval, and asynchronous programming techniques.
 
 ## Features
 
-- Fetches and displays the following weather data:
-  - Location name
-  - Temperature (in Celsius)
-  - "Feels like" temperature
-  - Humidity (in percentage)
-  - Wind speed (in m/s)
-  - Air quality index (AQI)
-  - Weather description
-- Fetches and displays the user's current location using the Geolocation API and the OpenCage Geocoder API.
-- Allows the user to enter a location to fetch and display the weather data for that location.
-- Displays a weather icon based on the weather description.
+- **Current Weather Display**: Users can instantly access current weather conditions including temperature, humidity, wind speed, and air quality for any city.
+- **5-Day Forecast**: PoliWeather offers a 5-day forecast to help users plan their activities and stay informed about upcoming weather changes.
+- **Search Functionality**: The app allows users to search for weather data by city name, providing a seamless user experience.
+- **Geolocation Support**: With geolocation support, users can opt to automatically fetch weather data for their current location, enhancing convenience and usability.
 
-## Usage
+## Technology Stack
 
-To use this application, simply open it in a web browser. It will automatically fetch and display the weather data for your current location. You can enter a different location in the search bar to fetch and display the weather data for that location.
+PoliWeather is built using modern web technologies, including:
 
-## API Keys
+- **HTML/CSS/JavaScript**: These foundational web technologies form the backbone of the application, enabling me to create a responsive and visually appealing user interface.
+- **Fetch API**: Leveraging the Fetch API, I asynchronously retrieve weather data from external APIs, ensuring smooth and efficient data retrieval.
+- **Node.js/Express.js**: Node.js and Express.js power the backend infrastructure, enabling me to handle API requests and serve dynamic content to users.
+- **Vercel**: As the deployment platform, Vercel allows me to effortlessly deploy and host the application, making it accessible to users worldwide.
 
-This application uses the following API keys:
+## Why PoliWeather?
 
-- OpenWeatherMap API: `3f2d3cd3a5900736eb3cd458b875135f`
-- OpenCage Geocoder API: `8267cbaa8e8f4be89279e0dc1476f54b`
+PoliWeather serves as a testament to my ability to conceptualize, design, and implement web applications from scratch. By showcasing my proficiency in API integration, data manipulation, and front-end development techniques, PoliWeather effectively highlights my expertise in web development.
 
-Please note that these keys are included in the code for demonstration purposes only. You should replace them with your own keys before using this application.
+## Get Started
 
-## Dependencies
+To experience PoliWeather firsthand, visit the website at [PoliWeather](https://poliweather.vercel.app/). Explore its features, interact with the interface, and discover the power of modern web development in action.
 
-This application uses the Fetch API to make HTTP requests and the Geolocation API to get the user's current location. It does not have any external library dependencies.
+## Connect
+
+For questions, feedback, or collaboration opportunities, feel free to reach out to me via email at <ovchynnikovandrii@gmail.com.> Let's connect and discuss how we can leverage technology to create impactful solutions.
+
+Start your journey with PoliWeather today and stay ahead of the weather curve!
