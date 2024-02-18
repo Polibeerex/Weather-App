@@ -34,6 +34,6 @@ To experience PoliWeather firsthand, visit the website at [PoliWeather](https://
 
 ## Connect
 
-For questions, feedback, or collaboration opportunities, feel free to reach out to me via email at <ovchynnikovandrii@gmail.com.> Let's connect and discuss how we can leverage technology to create impactful solutions.
+For questions, feedback, or collaboration opportunities, feel free to reach out to me via email at ovchynnikovandrii@gmail.com. Let's connect and discuss how we can leverage technology to create impactful solutions.
 
 Start your journey with PoliWeather today and stay ahead of the weather curve!
